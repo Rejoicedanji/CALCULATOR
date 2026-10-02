@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090c0a">
+  <title>R Danji | Scientific Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="calculator.js" defer></script>
+</head>
+<body>
+  <main class="workspace">
+    <header class="topbar">
+      <a class="wordmark" href="#" aria-label="R Danji calculator home">
+        <span class="mark" aria-hidden="true">R</span>
+        <span>danji</span>
+      </a>
+      <div class="topbar-meta"><span class="status-dot"></span> SCIENTIFIC <span class="meta-divider">/</span> 01</div>
+    </header>
+
+    <div class="layout">
+      <section class="calculator" aria-label="Scientific calculator">
+        <div class="calculator-heading">
+          <div>
+            <p class="eyebrow">DANJI INSTRUMENT</p>
+            <h1>Calculator</h1>
+          </div>
+          <div class="angle-switch" role="group" aria-label="Angle unit">
+            <button class="angle-option is-active" type="button" data-angle="DEG" aria-pressed="true">DEG</button>
+            <button class="angle-option" type="button" data-angle="RAD" aria-pressed="false">RAD</button>
+          </div>
+        </div>
+
+        <div class="display" aria-live="polite" aria-atomic="true">
+          <div class="display-tools">
+            <span class="display-label">INPUT</span>
+            <button class="icon-button copy-button" type="button" aria-label="Copy result" title="Copy result">
+              <svg viewBox="0 0 20 20" aria-hidden="true"><rect x="7" y="7" width="9" height="10" rx="1.5"></rect><path d="M12.5 7V4.5A1.5 1.5 0 0 0 11 3H5.5A1.5 1.5 0 0 0 4 4.5v7A1.5 1.5 0 0 0 5.5 13H7"></path></svg>
+            </button>
+          </div>
+          <div class="expression" id="expression" aria-label="Expression" role="textbox">0</div>
+          <div class="result-row">
+            <span class="result-equals">=</span>
+            <output class="result" id="result" aria-label="Result">0</output>
+          </div>
+          <p class="display-message" id="message" aria-live="polite"></p>
+        </div>
+
+        <div class="keypad" aria-label="Calculator keys">
+          <button class="key function-key" type="button" data-insert="sin(" aria-label="Sine")>sin</button>
+          <button class="key function-key" type="button" data-insert="cos(" aria-label="Cosine")>cos</button>
+          <button class="key function-key" type="button" data-insert="tan(" aria-label="Tangent")>tan</button>
+          <button class="key function-key" type="button" data-insert="sqrt(" aria-label="Square root")>√</button>
+          <button class="key function-key" type="button" data-insert="^2" aria-label="Square">x²</button>
+
+          <button class="key function-key" type="button" data-insert="ln(" aria-label="Natural logarithm")>ln</button>
+          <button class="key function-key" type="button" data-insert="log(" aria-label="Base ten logarithm")>log</button>
+          <button class="key function-key" type="button" data-insert="(" aria-label="Open parenthesis")>(</button>
+          <button class="key function-key" type="button" data-insert=")(" aria-label="Close parenthesis")></button>
+          <button class="key function-key" type="button" data-insert="!" aria-label="Factorial">x!</button>
+
+          <button class="key function-key" type="button" data-insert="asin(" aria-label="Inverse sine">sin⁻¹</button>
+          <button class="key function-key" type="button" data-insert="acos(" aria-label="Inverse cosine">cos⁻¹</button>
+          <button class="key function-key" type="button" data-insert="atan(" aria-label="Inverse tangent">tan⁻¹</button>
+          <button class="key function-key" type="button" data-insert="^" aria-label="Power">xʸ</button>
+          <button class="key function-key" type="button" data-insert="%" aria-label="Remainder">mod</button>
+
+          <button class="key utility-key clear-key" type="button" data-action="clear">AC</button>
+          <button class="key utility-key" type="button" data-action="backspace" aria-label="Delete last character">DEL</button>
+          <button class="key operator-key" type="button" data-insert="/" aria-label="Divide">÷</button>
+          <button class="key operator-key" type="button" data-insert="*" aria-label="Multiply">×</button>
+          <button class="key number-key" type="button" data-insert="7">7</button>
+          <button class="key number-key" type="button" data-insert="8">8</button>
+          <button class="key number-key" type="button" data-insert="9">9</button>
+          <button class="key operator-key" type="button" data-insert="-" aria-label="Subtract">−</button>
+          <button class="key number-key" type="button" data-insert="4">4</button>
+          <button class="key number-key" type="button" data-insert="5">5</button>
+          <button class="key number-key" type="button" data-insert="6">6</button>
+          <button class="key operator-key" type="button" data-insert="+" aria-label="Add">+</button>
+          <button class="key number-key" type="button" data-insert="1">1</button>
+          <button class="key number-key" type="button" data-insert="2">2</button>
+          <button class="key number-key" type="button" data-insert="3">3</button>
+          <button class="key constant-key" type="button" data-insert="pi" aria-label="Pi">π</button>
+          <button class="key number-key zero-key" type="button" data-insert="0">0</button>
+          <button class="key number-key" type="button" data-insert=".">.</button>
+          <button class="key constant-key" type="button" data-insert="e" aria-label="Euler's number">e</button>
+          <button class="key equals-key" type="button" data-action="calculate" aria-label="Calculate">=</button>
+        </div>
+        <footer class="calculator-footer">
+          <span>ENTER <span class="footer-arrow">↵</span> EVALUATE</span>
+          <span>ESC <span class="footer-arrow">⌫</span> CLEAR</span>
+          <span class="footer-version">AX-01</span>
+        </footer>
+      </section>
+
+      <aside class="history-panel" aria-label="Calculation history">
+        <div class="history-heading">
+          <div>
+            <p class="eyebrow">YOUR WORKSPACE</p>
+            <h2>History <span class="history-count" id="history-count">0</span></h2>
+          </div>
+          <button class="icon-button clear-history" type="button" aria-label="Clear history" title="Clear history">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 6h12M8 6V4h4v2m2 0-.7 10H6.7L6 6m2.5 3v4m3-4v4"></path></svg>
+          </button>
+        </div>
+        <div class="history-list" id="history-list">
+          <div class="history-empty">
+            <span class="empty-mark" aria-hidden="true">∑</span>
+            <p>No calculations yet</p>
+            <span>Your results will appear here.</span>
+          </div>
+        </div>
+        <div class="history-footnote"><span class="status-dot"></span> SAVED ON THIS DEVICE</div>
+      </aside>
+    </div>
+    <div class="page-index" aria-hidden="true">01 — 01</div>
+  </main>
+</body>
+</html>
